@@ -59,13 +59,13 @@
 </template>
 <script>
   import debounce from 'throttle-debounce/debounce';
-  import ElInput from 'element-ui/packages/input';
-  import Clickoutside from 'element-ui/src/utils/clickoutside';
+  import ElInput from 'jintu-ui/packages/input';
+  import Clickoutside from 'jintu-ui/src/utils/clickoutside';
   import ElAutocompleteSuggestions from './autocomplete-suggestions.vue';
-  import Emitter from 'element-ui/src/mixins/emitter';
-  import Migrating from 'element-ui/src/mixins/migrating';
-  import { generateId } from 'element-ui/src/utils/util';
-  import Focus from 'element-ui/src/mixins/focus';
+  import Emitter from 'jintu-ui/src/mixins/emitter';
+  import Migrating from 'jintu-ui/src/mixins/migrating';
+  import { generateId } from 'jintu-ui/src/utils/util';
+  import Focus from 'jintu-ui/src/mixins/focus';
 
   export default {
     name: 'ElAutocomplete',

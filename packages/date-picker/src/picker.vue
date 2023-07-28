@@ -2,7 +2,7 @@
   <el-input
     class="el-date-editor"
     :class="'el-date-editor--' + type"
-    :readonly="!editable || readonly || type === 'dates' || type === 'week' || type === 'years' || type === 'months'"
+    :readonly="!editable || readonly || type === 'dates' || type === 'week'"
     :disabled="pickerDisabled"
     :size="pickerSize"
     :name="name"
@@ -60,7 +60,8 @@
       @focus="handleFocus"
       class="el-range-input">
     <slot name="range-separator">
-      <span class="el-range-separator">{{ rangeSeparator }}</span>
+      <!-- <span class="el-range-separator" v-if="rangeIcon === ''">{{ rangeSeparator }}</span> -->
+      <i :class="['el-input__icon el-separator-icon', rangeIcon]"></i>
     </slot>
     <input
       autocomplete="off"
@@ -85,12 +86,12 @@
 
 <script>
 import Vue from 'vue';
-import Clickoutside from 'element-ui/src/utils/clickoutside';
-import { formatDate, parseDate, isDateObject, getWeekNumber } from 'element-ui/src/utils/date-util';
-import Popper from 'element-ui/src/utils/vue-popper';
-import Emitter from 'element-ui/src/mixins/emitter';
-import ElInput from 'element-ui/packages/input';
-import merge from 'element-ui/src/utils/merge';
+import Clickoutside from 'jintu-ui/src/utils/clickoutside';
+import { formatDate, parseDate, isDateObject, getWeekNumber } from 'jintu-ui/src/utils/date-util';
+import Popper from 'jintu-ui/src/utils/vue-popper';
+import Emitter from 'jintu-ui/src/mixins/emitter';
+import ElInput from 'jintu-ui/packages/input';
+import merge from 'jintu-ui/src/utils/merge';
 
 const NewPopper = {
   props: {
@@ -98,6 +99,7 @@ const NewPopper = {
     offset: Popper.props.offset,
     boundariesPadding: Popper.props.boundariesPadding,
     arrowOffset: Popper.props.arrowOffset,
+    // placement: Popper.props.placement,
     transformOrigin: Popper.props.transformOrigin
   },
   methods: Popper.methods,
@@ -110,7 +112,6 @@ const NewPopper = {
 const DEFAULT_FORMATS = {
   date: 'yyyy-MM-dd',
   month: 'yyyy-MM',
-  months: 'yyyy-MM',
   datetime: 'yyyy-MM-dd HH:mm:ss',
   time: 'HH:mm:ss',
   week: 'yyyywWW',
@@ -118,8 +119,7 @@ const DEFAULT_FORMATS = {
   daterange: 'yyyy-MM-dd',
   monthrange: 'yyyy-MM',
   datetimerange: 'yyyy-MM-dd HH:mm:ss',
-  year: 'yyyy',
-  years: 'yyyy'
+  year: 'yyyy'
 };
 const HAVE_TRIGGER_TYPES = [
   'date',
@@ -133,9 +133,7 @@ const HAVE_TRIGGER_TYPES = [
   'monthrange',
   'timerange',
   'datetimerange',
-  'dates',
-  'months',
-  'years'
+  'dates'
 ];
 const DATE_FORMATTER = function(value, format) {
   if (format === 'timestamp') return value.getTime();
@@ -259,24 +257,6 @@ const TYPE_VALUE_RESOLVER_MAP = {
       return (typeof value === 'string' ? value.split(', ') : value)
         .map(date => date instanceof Date ? date : DATE_PARSER(date, format));
     }
-  },
-  months: {
-    formatter(value, format) {
-      return value.map(date => DATE_FORMATTER(date, format));
-    },
-    parser(value, format) {
-      return (typeof value === 'string' ? value.split(', ') : value)
-        .map(date => date instanceof Date ? date : DATE_PARSER(date, format));
-    }
-  },
-  years: {
-    formatter(value, format) {
-      return value.map(date => DATE_FORMATTER(date, format));
-    },
-    parser(value, format) {
-      return (typeof value === 'string' ? value.split(', ') : value)
-        .map(date => date instanceof Date ? date : DATE_PARSER(date, format));
-    }
   }
 };
 const PLACEMENT_MAP = {
@@ -374,6 +354,10 @@ export default {
     startPlaceholder: String,
     endPlaceholder: String,
     prefixIcon: String,
+    rangeIcon: {
+      type: String,
+      default: 'el-icon-alijiantou'
+    },
     clearIcon: {
       type: String,
       default: 'el-icon-circle-close'
@@ -500,7 +484,7 @@ export default {
     },
 
     triggerClass() {
-      return this.prefixIcon || (this.type.indexOf('time') !== -1 ? 'el-icon-time' : 'el-icon-date');
+      return this.prefixIcon || (this.type.indexOf('time') !== -1 ? 'el-icon-time' : 'el-icon-alirili');
     },
 
     selectionMode() {
@@ -512,10 +496,6 @@ export default {
         return 'year';
       } else if (this.type === 'dates') {
         return 'dates';
-      } else if (this.type === 'months') {
-        return 'months';
-      } else if (this.type === 'years') {
-        return 'years';
       }
 
       return 'day';
@@ -538,7 +518,7 @@ export default {
       } else if (this.userInput !== null) {
         return this.userInput;
       } else if (formattedValue) {
-        return (this.type === 'dates' || this.type === 'years' || this.type === 'months')
+        return this.type === 'dates'
           ? formattedValue.join(', ')
           : formattedValue;
       } else {
@@ -740,7 +720,7 @@ export default {
       if (!this.pickerVisible) return;
       this.pickerVisible = false;
 
-      if (this.type === 'dates' || this.type === 'years' || this.type === 'months') {
+      if (this.type === 'dates') {
         // restore to former value
         const oldValue = parseAsFormatAndType(this.valueOnOpen, this.valueFormat, this.type, this.rangeSeparator) || this.valueOnOpen;
         this.emitInput(oldValue);

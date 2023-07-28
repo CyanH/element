@@ -1,4 +1,4 @@
-export * from './element-ui'
+export * from "./jintu-ui";
 
-import * as ElementUI from './element-ui'
-export default ElementUI
+import * as ElementUI from "./jintu-ui";
+export default ElementUI;

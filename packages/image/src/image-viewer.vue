@@ -43,7 +43,6 @@
           :key="url"
           :src="currentImg"
           :style="imgStyle"
-          referrerpolicy='no-referrer'
           @load="handleImgLoad"
           @error="handleImgError"
           @mousedown="handleMouseDown">
@@ -53,9 +52,9 @@
 </template>
 
 <script>
-import { on, off } from 'element-ui/src/utils/dom';
-import { rafThrottle, isFirefox } from 'element-ui/src/utils/util';
-import { PopupManager } from 'element-ui/src/utils/popup';
+import { on, off } from 'jintu-ui/src/utils/dom';
+import { rafThrottle, isFirefox } from 'jintu-ui/src/utils/util';
+import { PopupManager } from 'jintu-ui/src/utils/popup';
 
 const Mode = {
   CONTAIN: {

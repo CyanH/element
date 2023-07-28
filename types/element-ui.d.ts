@@ -1,131 +1,135 @@
-import Vue, { PluginObject } from 'vue'
-import { ElementUIComponent, ElementUIComponentSize, ElementUIHorizontalAlignment } from './component'
+import Vue, { PluginObject } from "vue";
+import {
+  ElementUIComponent,
+  ElementUIComponentSize,
+  ElementUIHorizontalAlignment,
+} from "./component";
 
-import { ElAlert } from './alert'
-import { ElAside } from './aside'
-import { ElAutocomplete } from './autocomplete'
-import { ElBadge } from './badge'
-import { ElBreadcrumb } from './breadcrumb'
-import { ElBreadcrumbItem } from './breadcrumb-item'
-import { ElButton } from './button'
-import { ElButtonGroup } from './button-group'
-import { ElCard } from './card'
-import { ElCarousel } from './carousel'
-import { ElCarouselItem } from './carousel-item'
-import { ElCascader } from './cascader'
-import { ElCheckbox } from './checkbox'
-import { ElCheckboxButton } from './checkbox-button'
-import { ElCheckboxGroup } from './checkbox-group'
-import { ElCol } from './col'
-import { ElCollapse } from './collapse'
-import { ElCollapseItem } from './collapse-item'
-import { ElColorPicker } from './color-picker'
-import { ElContainer } from './container'
-import { ElDatePicker } from './date-picker'
-import { ElDialog } from './dialog'
-import { ElDropdown } from './dropdown'
-import { ElDropdownItem } from './dropdown-item'
-import { ElDropdownMenu } from './dropdown-menu'
-import { ElFooter } from './footer'
-import { ElForm } from './form'
-import { ElFormItem } from './form-item'
-import { ElHeader } from './header'
-import { ElInput } from './input'
-import { ElInputNumber } from './input-number'
-import { ElLoading } from './loading'
-import { ElMain } from './main'
-import { ElMenu } from './menu'
-import { ElMenuItem } from './menu-item'
-import { ElMenuItemGroup } from './menu-item-group'
-import { ElMessage } from './message'
-import { ElMessageBox } from './message-box'
-import { ElNotification } from './notification'
-import { ElOption } from './option'
-import { ElOptionGroup } from './option-group'
-import { ElPagination } from './pagination'
-import { ElPopover } from './popover'
-import { ElProgress } from './progress'
-import { ElRate } from './rate'
-import { ElRadio } from './radio'
-import { ElRadioButton } from './radio-button'
-import { ElRadioGroup } from './radio-group'
-import { ElRow } from './row'
-import { ElSelect } from './select'
-import { ElSlider } from './slider'
-import { ElStep } from './step'
-import { ElSteps } from './steps'
-import { ElSubmenu } from './submenu'
-import { ElSwitch } from './switch'
-import { ElTable } from './table'
-import { ElTableColumn } from './table-column'
-import { ElTag } from './tag'
-import { ElTabs } from './tabs'
-import { ElTabPane } from './tab-pane'
-import { ElTimeline } from './timeline'
-import { ElTimelineItem } from './timeline-item'
-import { ElTimePicker } from './time-picker'
-import { ElTimeSelect } from './time-select'
-import { ElTooltip } from './tooltip'
-import { ElTransfer } from './transfer'
-import { ElTree, TreeData } from './tree'
-import { ElUpload } from './upload'
-import { ElLink } from './link'
-import { ElDivider } from './divider'
-import { ElIcon } from './icon'
-import { ElCalendar } from './calendar'
-import { ElImage } from './image'
-import { ElBacktop } from './backtop'
-import { ElInfiniteScroll } from './infinite-scroll'
-import { ElPageHeader } from './page-header'
-import { ElAvatar } from './avatar'
-import { ElDrawer } from './drawer'
-import { ElPopconfirm } from './popconfirm'
-import { ElSkeleton } from './skeleton'
-import { ElSkeletonItem } from './skeleton-item'
-import { ElCascaderPanel } from './cascader-panel'
-import { ElEmpty } from './empty'
-import { ElSpinner } from './spinner'
-import { ElDescriptions } from './descriptions'
-import { ElDescriptionsItem } from './descriptions-item'
-import { ElResult } from './result'
-import { ElStatistic } from './statistic'
+import { ElAlert } from "./alert";
+import { ElAside } from "./aside";
+import { ElAutocomplete } from "./autocomplete";
+import { ElBadge } from "./badge";
+import { ElBreadcrumb } from "./breadcrumb";
+import { ElBreadcrumbItem } from "./breadcrumb-item";
+import { ElButton } from "./button";
+import { ElButtonGroup } from "./button-group";
+import { ElCard } from "./card";
+import { ElCarousel } from "./carousel";
+import { ElCarouselItem } from "./carousel-item";
+import { ElCascader } from "./cascader";
+import { ElCheckbox } from "./checkbox";
+import { ElCheckboxButton } from "./checkbox-button";
+import { ElCheckboxGroup } from "./checkbox-group";
+import { ElCol } from "./col";
+import { ElCollapse } from "./collapse";
+import { ElCollapseItem } from "./collapse-item";
+import { ElColorPicker } from "./color-picker";
+import { ElContainer } from "./container";
+import { ElDatePicker } from "./date-picker";
+import { ElDialog } from "./dialog";
+import { ElDropdown } from "./dropdown";
+import { ElDropdownItem } from "./dropdown-item";
+import { ElDropdownMenu } from "./dropdown-menu";
+import { ElFooter } from "./footer";
+import { ElForm } from "./form";
+import { ElFormItem } from "./form-item";
+import { ElHeader } from "./header";
+import { ElInput } from "./input";
+import { ElInputNumber } from "./input-number";
+import { ElLoading } from "./loading";
+import { ElMain } from "./main";
+import { ElMenu } from "./menu";
+import { ElMenuItem } from "./menu-item";
+import { ElMenuItemGroup } from "./menu-item-group";
+import { ElMessage } from "./message";
+import { ElMessageBox } from "./message-box";
+import { ElNotification } from "./notification";
+import { ElOption } from "./option";
+import { ElOptionGroup } from "./option-group";
+import { ElPagination } from "./pagination";
+import { ElPopover } from "./popover";
+import { ElProgress } from "./progress";
+import { ElRate } from "./rate";
+import { ElRadio } from "./radio";
+import { ElRadioButton } from "./radio-button";
+import { ElRadioGroup } from "./radio-group";
+import { ElRow } from "./row";
+import { ElSelect } from "./select";
+import { ElSlider } from "./slider";
+import { ElStep } from "./step";
+import { ElSteps } from "./steps";
+import { ElSubmenu } from "./submenu";
+import { ElSwitch } from "./switch";
+import { ElTable } from "./table";
+import { ElTableColumn } from "./table-column";
+import { ElTag } from "./tag";
+import { ElTabs } from "./tabs";
+import { ElTabPane } from "./tab-pane";
+import { ElTimeline } from "./timeline";
+import { ElTimelineItem } from "./timeline-item";
+import { ElTimePicker } from "./time-picker";
+import { ElTimeSelect } from "./time-select";
+import { ElTooltip } from "./tooltip";
+import { ElTransfer } from "./transfer";
+import { ElTree, TreeData } from "./tree";
+import { ElUpload } from "./upload";
+import { ElLink } from "./link";
+import { ElDivider } from "./divider";
+import { ElIcon } from "./icon";
+import { ElCalendar } from "./calendar";
+import { ElImage } from "./image";
+import { ElBacktop } from "./backtop";
+import { ElInfiniteScroll } from "./infinite-scroll";
+import { ElPageHeader } from "./page-header";
+import { ElAvatar } from "./avatar";
+import { ElDrawer } from "./drawer";
+import { ElPopconfirm } from "./popconfirm";
+import { ElSkeleton } from "./skeleton";
+import { ElSkeletonItem } from "./skeleton-item";
+import { ElCascaderPanel } from "./cascader-panel";
+import { ElEmpty } from "./empty";
+import { ElSpinner } from "./spinner";
+import { ElDescriptions } from "./descriptions";
+import { ElDescriptionsItem } from "./descriptions-item";
+import { ElResult } from "./result";
+import { ElStatistic } from "./statistic";
 
 export interface InstallationOptions {
-  locale: any,
-  i18n: any,
-  size: string
+  locale: any;
+  i18n: any;
+  size: string;
 }
 
-/** The version of element-ui */
-export const version: string
+/** The version of jintu-ui */
+export const version: string;
 
 /**
- * Install all element-ui components into Vue.
+ * Install all jintu-ui components into Vue.
  * Please do not invoke this method directly.
  * Call `Vue.use(ElementUI)` to install.
  */
-export function install (vue: typeof Vue, options: InstallationOptions): void
+export function install(vue: typeof Vue, options: InstallationOptions): void;
 
 /** ElementUI component common definition */
-export type Component = ElementUIComponent
+export type Component = ElementUIComponent;
 
 /** Component size definition for button, input, etc */
-export type ComponentSize = ElementUIComponentSize
+export type ComponentSize = ElementUIComponentSize;
 
 /** Horizontal alignment */
-export type HorizontalAlignment = ElementUIHorizontalAlignment
+export type HorizontalAlignment = ElementUIHorizontalAlignment;
 
 /** Show animation while loading data */
-export const Loading: ElLoading
+export const Loading: ElLoading;
 
 /** Used to show feedback after an activity. The difference with Notification is that the latter is often used to show a system level passive notification. */
-export const Message: ElMessage
+export const Message: ElMessage;
 
 /** A set of modal boxes simulating system message box, mainly for message prompt, success tips, error messages and query information */
-export const MessageBox: ElMessageBox
+export const MessageBox: ElMessageBox;
 
 /** Displays a global notification message at the upper right corner of the page */
-export const Notification: ElNotification
+export const Notification: ElNotification;
 
 // TS cannot merge imported class with namespace, so declare subclasses instead
 

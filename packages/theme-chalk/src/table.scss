@@ -107,7 +107,7 @@
   }
 
   thead {
-    color: $--table-header-font-color;
+    color: #1D1F23;
     font-weight: 500;
 
     &.is-group {
@@ -118,7 +118,7 @@
   }
 
   .el-table__cell {
-    padding: 12px 0;
+    padding: 10px 0;
     min-width: 0;
     box-sizing: border-box;
     text-overflow: ellipsis;
@@ -176,10 +176,10 @@
     }
   }
 
-  th.el-table__cell.is-leaf,
-  td.el-table__cell {
-    border-bottom: $--table-border;
-  }
+  // th.el-table__cell.is-leaf,
+  // td.el-table__cell {
+  //   border-bottom: $--table-border;
+  // }
 
   th.el-table__cell.is-sortable {
     cursor: pointer;
@@ -264,13 +264,13 @@
   }
 
   // 表格底部伪 border，总是有的
-  &::before {
-    @include extend-rule(border-pseudo);
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-  }
+  // &::before {
+  //   @include extend-rule(border-pseudo);
+  //   left: 0;
+  //   bottom: 0;
+  //   width: 100%;
+  //   height: 1px;
+  // }
 
   // table--border
   @include m(border) {

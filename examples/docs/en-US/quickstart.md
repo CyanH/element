@@ -21,16 +21,16 @@ You can import Element entirely, or just import what you need. Let's start with 
 In main.js:
 
 ```javascript
-import Vue from 'vue';
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-import App from './App.vue';
+import Vue from "vue";
+import ElementUI from "jintu-ui";
+import "jintu-ui/lib/theme-chalk/index.css";
+import App from "./App.vue";
 
 Vue.use(ElementUI);
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+  el: "#app",
+  render: (h) => h(App),
 });
 ```
 
@@ -55,7 +55,7 @@ Then edit .babelrc:
     [
       "component",
       {
-        "libraryName": "element-ui",
+        "libraryName": "jintu-ui",
         "styleLibraryName": "theme-chalk"
       }
     ]
@@ -66,9 +66,9 @@ Then edit .babelrc:
 Next, if you need Button and Select, edit main.js:
 
 ```javascript
-import Vue from 'vue';
-import { Button, Select } from 'element-ui';
-import App from './App.vue';
+import Vue from "vue";
+import { Button, Select } from "jintu-ui";
+import App from "./App.vue";
 
 Vue.component(Button.name, Button);
 Vue.component(Select.name, Select);
@@ -78,15 +78,15 @@ Vue.component(Select.name, Select);
  */
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+  el: "#app",
+  render: (h) => h(App),
 });
 ```
 
 Full example (Component list reference [components.json](https://github.com/ElemeFE/element/blob/master/components.json))
 
 ```javascript
-import Vue from 'vue';
+import Vue from "vue";
 import {
   Pagination,
   Dialog,
@@ -164,8 +164,8 @@ import {
   Loading,
   MessageBox,
   Message,
-  Notification
-} from 'element-ui';
+  Notification,
+} from "jintu-ui";
 
 Vue.use(Pagination);
 Vue.use(Dialog);
@@ -259,18 +259,18 @@ When importing Element, you can define a global config object. For now this obje
 Fully import Element：
 
 ```js
-import Vue from 'vue';
-import Element from 'element-ui';
-Vue.use(Element, { size: 'small', zIndex: 3000 });
+import Vue from "vue";
+import Element from "jintu-ui";
+Vue.use(Element, { size: "small", zIndex: 3000 });
 ```
 
 Partial import Element：
 
 ```js
-import Vue from 'vue';
-import { Button } from 'element-ui';
+import Vue from "vue";
+import { Button } from "jintu-ui";
 
-Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
+Vue.prototype.$ELEMENT = { size: "small", zIndex: 3000 };
 Vue.use(Button);
 ```
 

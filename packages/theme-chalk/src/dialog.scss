@@ -7,7 +7,7 @@
   position: relative;
   margin: 0 auto 50px;
   background: $--dialog-background-color;
-  border-radius: $--border-radius-small;
+  border-radius: 6px;
   box-shadow: $--dialog-box-shadow;
   box-sizing: border-box;
   width: 50%;
@@ -31,14 +31,17 @@
   }
 
   @include e(header) {
-    padding: $--dialog-padding-primary;
-    padding-bottom: 10px;
+    padding: 16px 24px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   @include e(headerbtn) {
-    position: absolute;
-    top: $--dialog-padding-primary;
-    right: $--dialog-padding-primary;
+    // position: absolute;
+    // top: $--dialog-padding-primary;
+    // right: $--dialog-padding-primary;
     padding: 0;
     background: transparent;
     border: none;
@@ -50,7 +53,7 @@
       color: $--color-info;
     }
 
-    &:focus, &:hover {
+    &:hover {
       .el-dialog__close {
         color: $--color-primary;
       }
@@ -59,8 +62,9 @@
 
   @include e(title) {
     line-height: $--dialog-font-line-height;
-    font-size: $--dialog-title-font-size;
-    color: $--color-text-primary;
+    font-size: 18px;
+    color: #1d1f25;
+    font-weight: bold;
   }
 
   @include e(body) {
@@ -71,10 +75,16 @@
   }
 
   @include e(footer) {
-    padding: $--dialog-padding-primary;
-    padding-top: 10px;
+    padding: 12px 24px;
+    border-top: 1px solid #eee;
     text-align: right;
     box-sizing: border-box;
+
+    .el-button {
+      font-size: 14px;
+      padding: 7px 15px;
+      border-radius: 4px;
+    }
   }
 
   // 内容居中布局
@@ -93,11 +103,11 @@
 }
 
 .dialog-fade-enter-active {
-  animation: dialog-fade-in .3s;
+  animation: dialog-fade-in 0.3s;
 }
 
 .dialog-fade-leave-active {
-  animation: dialog-fade-out .3s;
+  animation: dialog-fade-out 0.3s;
 }
 
 @keyframes dialog-fade-in {

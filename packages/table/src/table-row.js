@@ -1,4 +1,4 @@
-import ElCheckbox from 'element-ui/packages/checkbox';
+import ElCheckbox from 'jintu-ui/packages/checkbox';
 export default {
   name: 'ElTableRow',
   props: [

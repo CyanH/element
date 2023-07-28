@@ -21,16 +21,16 @@ Puede importar Element completamente o solamente importar lo que necesite. Comen
 En main.js:
 
 ```javascript
-import Vue from 'vue';
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-import App from './App.vue';
+import Vue from "vue";
+import ElementUI from "jintu-ui";
+import "jintu-ui/lib/theme-chalk/index.css";
+import App from "./App.vue";
 
 Vue.use(ElementUI);
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+  el: "#app",
+  render: (h) => h(App),
 });
 ```
 
@@ -55,7 +55,7 @@ Luego edite .babelrc:
     [
       "component",
       {
-        "libraryName": "element-ui",
+        "libraryName": "jintu-ui",
         "styleLibraryName": "theme-chalk"
       }
     ]
@@ -66,9 +66,9 @@ Luego edite .babelrc:
 Luego, si necesita Button y Select, edite main.js:
 
 ```javascript
-import Vue from 'vue';
-import { Button, Select } from 'element-ui';
-import App from './App.vue';
+import Vue from "vue";
+import { Button, Select } from "jintu-ui";
+import App from "./App.vue";
 
 Vue.component(Button.name, Button);
 Vue.component(Select.name, Select);
@@ -78,15 +78,15 @@ Vue.component(Select.name, Select);
  */
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+  el: "#app",
+  render: (h) => h(App),
 });
 ```
 
 Ejemplo completo (Referencia completa de componentes [components.json](https://github.com/ElemeFE/element/blob/master/components.json))
 
 ```javascript
-import Vue from 'vue';
+import Vue from "vue";
 import {
   Pagination,
   Dialog,
@@ -164,8 +164,8 @@ import {
   Loading,
   MessageBox,
   Message,
-  Notification
-} from 'element-ui';
+  Notification,
+} from "jintu-ui";
 
 Vue.use(Pagination);
 Vue.use(Dialog);
@@ -261,18 +261,18 @@ La propiedad `zIndex` indica el z-index inicial (por defecto: 2000) para los mod
 Importando Element completamente：
 
 ```js
-import Vue from 'vue';
-import Element from 'element-ui';
-Vue.use(Element, { size: 'small', zIndex: 3000 });
+import Vue from "vue";
+import Element from "jintu-ui";
+Vue.use(Element, { size: "small", zIndex: 3000 });
 ```
 
 Importando Element parcialmente：
 
 ```js
-import Vue from 'vue';
-import { Button } from 'element-ui';
+import Vue from "vue";
+import { Button } from "jintu-ui";
 
-Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
+Vue.prototype.$ELEMENT = { size: "small", zIndex: 3000 };
 Vue.use(Button);
 ```
 

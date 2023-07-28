@@ -12,21 +12,32 @@
         :key="key"
         aria-modal="true"
         :aria-label="title || 'dialog'"
-        :class="['el-dialog', { 'is-fullscreen': fullscreen, 'el-dialog--center': center }, customClass]"
+        :class="['el-dialog', { 'is-fullscreen': fullscreenStatu, 'el-dialog--center': center }, customClass]"
         ref="dialog"
         :style="style">
         <div class="el-dialog__header">
           <slot name="title">
             <span class="el-dialog__title">{{ title }}</span>
           </slot>
-          <button
-            type="button"
-            class="el-dialog__headerbtn"
-            aria-label="Close"
-            v-if="showClose"
-            @click="handleClose">
-            <i class="el-dialog__close el-icon el-icon-close"></i>
-          </button>
+          <div>
+            <button
+              type="button"
+              class="el-dialog__headerbtn"
+              style="margin-right: 5px"
+              aria-label="Close"
+              v-if="showFullBtn"
+              @click="handleFullScreen">
+              <i class="el-dialog__close el-icon " :class="fullscreenStatu? 'el-icon-aliexitfullscreen':'el-icon-alifullscreen'"></i>
+            </button>
+            <button
+              type="button"
+              class="el-dialog__headerbtn"
+              aria-label="Close"
+              v-if="showClose"
+              @click="handleClose">
+              <i class="el-dialog__close el-icon el-icon-close"></i>
+            </button>
+          </div>
         </div>
         <div class="el-dialog__body" v-if="rendered"><slot></slot></div>
         <div class="el-dialog__footer" v-if="$slots.footer">
@@ -38,9 +49,9 @@
 </template>
 
 <script>
-  import Popup from 'element-ui/src/utils/popup';
-  import Migrating from 'element-ui/src/mixins/migrating';
-  import emitter from 'element-ui/src/mixins/emitter';
+  import Popup from 'jintu-ui/src/utils/popup';
+  import Migrating from 'jintu-ui/src/mixins/migrating';
+  import emitter from 'jintu-ui/src/mixins/emitter';
 
   export default {
     name: 'ElDialog',
@@ -83,6 +94,11 @@
         default: true
       },
 
+      showFullBtn: {
+        type: Boolean,
+        default: true
+      },
+
       showClose: {
         type: Boolean,
         default: true
@@ -113,7 +129,8 @@
     data() {
       return {
         closed: false,
-        key: 0
+        key: 0,
+        fullscreenStatu: this.fullscreen
       };
     },
 
@@ -144,7 +161,7 @@
     computed: {
       style() {
         let style = {};
-        if (!this.fullscreen) {
+        if (!this.fullscreenStatu) {
           style.marginTop = this.top;
           if (this.width) {
             style.width = this.width;
@@ -165,6 +182,9 @@
       handleWrapperClick() {
         if (!this.closeOnClickModal) return;
         this.handleClose();
+      },
+      handleFullScreen() {
+        this.fullscreenStatu = !this.fullscreenStatu;
       },
       handleClose() {
         if (typeof this.beforeClose === 'function') {

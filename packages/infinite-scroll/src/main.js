@@ -4,10 +4,10 @@ import {
   isFunction,
   isUndefined,
   isDefined
-} from 'element-ui/src/utils/types';
+} from 'jintu-ui/src/utils/types';
 import {
   getScrollContainer
-} from 'element-ui/src/utils/dom';
+} from 'jintu-ui/src/utils/dom';
 
 const getStyleComputedProperty = (element, property) => {
   if (element === window) {

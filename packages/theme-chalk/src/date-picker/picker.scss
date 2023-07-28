@@ -45,11 +45,11 @@
   }
 
   .el-range__icon {
-    font-size: 14px;
-    margin-left: -5px;
-    color: $--color-text-placeholder;
+    font-size: 20px;
+    color: #a0a0a0;
     float: left;
-    line-height: 32px;
+    line-height: 30px;
+    text-align: right;
   }
 
   .el-range-input {
@@ -80,6 +80,12 @@
     font-size: 14px;
     width: 5%;
     color: $--color-text-primary;
+
+  }
+
+  .el-separator-icon{
+    line-height: 28px;
+    color: #a0a0a0;
   }
 
   .el-range__close-icon {

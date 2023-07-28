@@ -33,9 +33,9 @@
 </template>
 
 <script>
-  import { hasClass } from 'element-ui/src/utils/dom';
-  import { isObject } from 'element-ui/src/utils/types';
-  import Migrating from 'element-ui/src/mixins/migrating';
+  import { hasClass } from 'jintu-ui/src/utils/dom';
+  import { isObject } from 'jintu-ui/src/utils/types';
+  import Migrating from 'jintu-ui/src/mixins/migrating';
 
   export default {
     name: 'ElRate',

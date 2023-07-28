@@ -166,7 +166,7 @@
           </div>
         </div>
       </div>
-      <div class="el-picker-panel__footer" v-if="showTime">
+      <div class="el-picker-panel__footer">
         <el-button
           size="mini"
           type="text"
@@ -202,13 +202,13 @@
     nextDate,
     extractDateFormat,
     extractTimeFormat
-  } from 'element-ui/src/utils/date-util';
-  import Clickoutside from 'element-ui/src/utils/clickoutside';
-  import Locale from 'element-ui/src/mixins/locale';
+  } from 'jintu-ui/src/utils/date-util';
+  import Clickoutside from 'jintu-ui/src/utils/clickoutside';
+  import Locale from 'jintu-ui/src/mixins/locale';
   import TimePicker from './time';
   import DateTable from '../basic/date-table';
-  import ElInput from 'element-ui/packages/input';
-  import ElButton from 'element-ui/packages/button';
+  import ElInput from 'jintu-ui/packages/input';
+  import ElButton from 'jintu-ui/packages/button';
 
   const calcDefaultValue = (defaultValue) => {
     if (Array.isArray(defaultValue)) {

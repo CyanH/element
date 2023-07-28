@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Loading from './loading.vue';
-import { addClass, removeClass, getStyle } from 'element-ui/src/utils/dom';
-import { PopupManager } from 'element-ui/src/utils/popup';
-import afterLeave from 'element-ui/src/utils/after-leave';
+import { addClass, removeClass, getStyle } from 'jintu-ui/src/utils/dom';
+import { PopupManager } from 'jintu-ui/src/utils/popup';
+import afterLeave from 'jintu-ui/src/utils/after-leave';
 const Mask = Vue.extend(Loading);
 
 const loadingDirective = {};
@@ -64,7 +64,7 @@ loadingDirective.install = Vue => {
         el.mask.style[property] = el.maskStyle[property];
       });
 
-      if (el.originalPosition !== 'absolute' && el.originalPosition !== 'fixed' && el.originalPosition !== 'sticky') {
+      if (el.originalPosition !== 'absolute' && el.originalPosition !== 'fixed') {
         addClass(parent, 'el-loading-parent--relative');
       }
       if (binding.modifiers.fullscreen && binding.modifiers.lock) {
